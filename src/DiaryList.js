@@ -1,3 +1,5 @@
+import DiaryItem from './DiaryItem';
+
 const DiaryList = ({diaryList}) => {
   console.log(diaryList);
   return (
@@ -7,12 +9,7 @@ const DiaryList = ({diaryList}) => {
 
     <div>
       {diaryList.map((it)=>(  //각각의 요소
-        <div key = {it.id}>
-          <div>작성자: {it.author} </div>
-          <div>일기: {it.content} </div>
-          <div>감정: {it.emotion} </div>
-          <div>작성 시간(ms): {it.created_date} </div>
-        </div>
+        <DiaryItem key = {it.id} {...it} /> //별도의 component인 DiaryItem 이용
       ))}
     </div>
   </div>
