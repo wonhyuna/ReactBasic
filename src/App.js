@@ -2,6 +2,7 @@ import './App.css';
 import {useRef, useState} from "react";
 import DiaryEditor from './DiaryEditor';
 import DiaryList from './DiaryList';
+import Lifecycle from './Lifecycle';
 
 
 function App(){
@@ -41,6 +42,7 @@ function App(){
     // onCreate 만들기
     // 현재 가지고 있는 data 넘기기
     <div className="App">
+      <Lifecycle />
       <DiaryEditor onCreate = {onCreate}/>
       <DiaryList onEdit = {onEdit} onRemove = {onRemove} diaryList = {data}/> 
     </div>

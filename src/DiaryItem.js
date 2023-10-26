@@ -30,8 +30,6 @@ const DiaryItem = ({onEdit, onRemove, author, content, created_date, emotion, id
       onEdit(id, localContent);
       toggleIsEdit();
     }
-
-    onEdit(id, localContent)
   }
 
   return (
