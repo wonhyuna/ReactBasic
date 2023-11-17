@@ -2,7 +2,7 @@ import './App.css';
 import {useMemo, useEffect, useRef, useState} from "react";
 import DiaryEditor from './DiaryEditor';
 import DiaryList from './DiaryList';
-import Lifecycle from './Lifecycle';
+import OptimizeTest from './OptimizeTest';
 
 //https://jsonplaceholder.typicode.com/comments 
 
@@ -76,7 +76,7 @@ const App = () => {
     // onCreate 만들기
     // 현재 가지고 있는 data 넘기기
     <div className="App">
-      <Lifecycle />
+      <OptimizeTest />
       <DiaryEditor onCreate = {onCreate}/>
       <div>전체 일기: {data.length}</div>
       <div>기분 좋은 일기 개수: {goodCount}</div>
