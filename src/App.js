@@ -47,17 +47,17 @@ const App = () => {
   []
   ); //mount는 한 번만 하고 값이 안 바뀌면 callback 함수를 이용해서 재사용하기
 
-  const onRemove = (targetId) =>{
-    const newDiaryList = data.filter((it)=>it.id !== targetId); //삭제한 값은 안 보이게 filter 사용 
-    setData(newDiaryList);
-  };
+  const onRemove = useCallback((targetId) =>{
+    //삭제한 값은 안 보이게 filter 사용 
+    setData(data => data.filter((it)=>it.id !== targetId)); //setData 자체를 이용해서 최신형 업데이트를 사용할 수 있음
+  }, []);
 
-  const onEdit = (targetId, newContent) => {  //수정대상, 수정내용
-    setData(  
+  const onEdit = useCallback((targetId, newContent) => {  //수정대상, 수정내용
+    setData(data =>  
       data.map((it) =>  //모든 요소들이 id끼리 일치하는지 확인 
       it.id === targetId ? {...it, content: newContent} : it) //일치하면 원본대상 + 내용수정함 / 아니면 원본대상
     )
-  }
+  }, []);
 
   const getDiaryAnalysis = useMemo(() => {
     const goodCount = data.filter((it)=>it.emotion >= 3).length;
